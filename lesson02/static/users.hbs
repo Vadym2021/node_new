@@ -15,6 +15,10 @@
 
         <div>Name: {{this.firstName}}</div>
         <div>password: {{this.password}}</div>
+<!--        <div>id: {{this.id}}</div>-->
+        <form class="form" action="/users/{{this.id}}">
+            <input type="submit" value="info">
+        </form>
         <hr>
 
     {{/each}}
