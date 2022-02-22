@@ -6,7 +6,6 @@
   "scripts": {
     "start": "rimraf dist && tsc-watch --onSuccess npm run watch:server",
     "watch:server": "nodemon './dist/app.js' --watch './src'"
-
   },
   "author": "",
   "license": "ISC",
