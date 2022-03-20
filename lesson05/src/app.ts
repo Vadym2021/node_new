@@ -1,5 +1,6 @@
+import 'reflect-metadata';
 import express from 'express';
-import { users } from './users';
+import { createConnection } from 'typeorm';
 
 //    "start": "rimraf dist && tsc-watch --onSucess ",
 
@@ -12,25 +13,19 @@ import { users } from './users';
 
 const app = express();
 
-console.log(users);
-
-// app.get('/', (req: Request, res: Response) => {
-//     console.log(users);
-//     res.end();
+// app.get('/users', async (req: Request, res: Response) => {
+//     // await getManager().getRepository()
+//     // res.end();
 // });
 
-// const obj = {
-//     x: 22,
-//     y: 444,
-// };
-
-console.log(11);
-console.log(11);
-console.log(11);
-
-
-
-
-app.listen(5500, () => {
+app.listen(5500, async () => {
     console.log('Server has started');
+    try {
+        const connection = await createConnection();
+        if (connection) {
+            console.log('Database connected');
+        }
+    } catch (err) {
+        if (err) console.log(err);
+    }
 });
